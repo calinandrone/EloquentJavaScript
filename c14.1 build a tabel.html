@@ -1,0 +1,54 @@
+<!doctype html>
+
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+
+  let columnsNames = Object.keys(MOUNTAINS[0]);
+    
+  document.getElementById("mountains")
+    						.appendChild(document.createElement("table"));
+
+  let head = document.getElementsByTagName("table")[0]
+  									.appendChild(document.createElement("tr"));
+  for (let item of columnsNames) {
+    head.appendChild(document.createElement("th"))
+      					.appendChild(document.createTextNode(item));
+  }
+  
+  for (let object of MOUNTAINS) {
+    let row = document.getElementsByTagName("table")[0]
+  							.appendChild(document.createElement("tr"));
+    
+    /*DE CE NU MERGE ASTA?
+  	for (let field of columnsNames) {
+      	row.appendChild(document.createElement("td"))
+           		.appendChild(document.createTextNode(object.field));
+    }*/
+    
+    row.appendChild(document.createElement("td"))
+           		.appendChild(document.createTextNode(object.name));
+    
+    let heights = row.appendChild(document.createElement("td"));
+    heights.style.textAlign = "right";
+    heights.appendChild(document.createTextNode(object.height));
+    
+    row.appendChild(document.createElement("td"))
+           		.appendChild(document.createTextNode(object.place));
+  }
+  
+
+  
+  
+</script>
